@@ -1,0 +1,35 @@
+
+.slick-prev, .slick-next {
+  z-index: 10;
+  top: 45%;
+  transform: translateY(-50%);
+}
+
+.slick-prev {
+  left: 1px;
+}
+.slick-next {
+  right: 10px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 24px;
+  color: #3a5752;
+  opacity: 0.8;
+}
+
+.slick-dots {
+  bottom: -5px;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+  color: #26a69a;
+  opacity: 0.7;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #004d40;
+  opacity: 1;
+}
