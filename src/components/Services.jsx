@@ -138,30 +138,6 @@ const services = [
       },
     ],
   },
-  {
-    title: "Business Solutions",
-    icon: <FaProjectDiagram size={32} color="#00c853" />,
-    description:
-      "As technology enthusiasts, we are always exploring new tools and frameworks to stay at the cutting edge of innovation. We stays up-to-date with the latest trends in web and mobile development, ensuring that applications are built using the most advanced and efficient technologies available.",
-    steps: [
-      "Understand business pain points",
-      "Propose tailored tech solutions",
-      "Develop scalable systems",
-      "Monitor performance and iterate",
-    ],
-    tools: ["CRM Systems", "Custom Dashboards", "Cloud Infrastructure"],
-    images: ["/services/business1.jpg", "/services/business2.jpg"],
-    projects: [
-      {
-        name: "Client360",
-        desc: "Integrated CRM system with analytics and support modules.",
-      },
-      {
-        name: "SmartOps Suite",
-        desc: "Business automation tools for SMEs and startups.",
-      },
-    ],
-  },
 ];
 
 const Services = () => {
@@ -186,7 +162,11 @@ const Services = () => {
   return (
     <Box
       id="services"
-      sx={{ py: 10, background: "linear-gradient(135deg, #e0f7fa, #f1f8e9)", }}
+      sx={{ 
+        py: 10, 
+      // background: "linear-gradient(135deg, #e0f7fa, #f1f8e9)"
+      background: "white",
+       }}
     >
       <Container maxWidth="lg">
         <motion.div
@@ -205,7 +185,7 @@ const Services = () => {
             fontWeight="bold"
             fontSize={{ xs: 28, sm: 36 }}
             sx={{
-              background: "linear-gradient(to right, #00796b, #43a047)",
+              background: "black",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               mb: 1,

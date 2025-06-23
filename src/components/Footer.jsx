@@ -16,6 +16,18 @@ import {
   Google,
   LinkedIn,
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+
+
+const footerLinks = [
+  { label: "Home", path: "/" },
+  { label: "About us", path: "/about" },
+  { label: "Services", path: "/services" },
+  { label: "Terms of service", path: "/terms-of-service" },
+  { label: "Privacy policy", path: "/privacy-policy" },
+  { label: "Safe Workplace Policy", path: "/safe-workplace-policy" },
+  { label: " Grievance", path: "" },
+];
 
 const Footer = () => {
   return (
@@ -47,25 +59,24 @@ const Footer = () => {
               USEFUL LINKS
             </Typography>
             <Divider sx={{ width: 40, bgcolor: "#00ff7f", mb: 1 }} />
-            {[
-              "Home",
-              "About us",
-              "Services",
-              "Terms of service",
-              "Privacy policy",
-            ].map((link, i) => (
-              <Typography
-                key={i}
-                variant="body2"
-                sx={{
-                  cursor: "pointer",
-                  mb: 1,
-                  "&:hover": { color: "#003300" },
-                }}
-              >
-                › {link}
-              </Typography>
-            ))}
+            {footerLinks.map(({ label, path }, i) => (
+    <Typography
+      key={i}
+      variant="body2"
+      component={Link}
+      to={path}
+      sx={{
+        cursor: "pointer",
+        textDecoration: "none",
+        color: "inherit",
+        mb: 1,
+        display: "block",
+        "&:hover": { color: "#003300" },
+      }}
+    >
+      › {label}
+    </Typography>
+  ))}
           </Grid>
 
           {/* Contact */}

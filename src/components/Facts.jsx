@@ -22,7 +22,8 @@ const Facts = () => {
       id="facts"
       sx={{
         py: 10,
-        background: "linear-gradient(135deg, #e0f7fa, #f1f8e9)",
+        // background: "linear-gradient(135deg, #e0f7fa, #f1f8e9)",
+        background: "white",
         overflow: "hidden",
       }}
     >
