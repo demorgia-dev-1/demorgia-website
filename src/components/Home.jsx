@@ -167,65 +167,70 @@ const Home = () => {
               </Box>
             </Grow>
           </Box>
-              <Box textAlign="center" zIndex={1} position="relative" sx={{
-    maxWidth: { xs: "100%", md: "80%" }, // Restrict content width
-    mx: "auto", // Center it
-    px: { xs: 2, sm: 4 }, // Add padding for smaller screens
-}}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentIndex}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                     transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    <Typography
-                      variant="h3"
-                      sx={{
-                        fontWeight: "bold",
-                        mb: 2,
-                        fontSize: { xs: "2rem", md: "3rem" },
-                      }}
-                    >
-                      {contentItems[currentIndex].heading}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{ mb: 4, maxWidth: 600, mx: "auto" }}
-                    >
-                      {contentItems[currentIndex].description}
-                    </Typography>
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Button stays fixed below */}
-                <Button
-                  variant="contained"
+          <Box
+            textAlign="center"
+            zIndex={1}
+            position="relative"
+            sx={{
+              maxWidth: { xs: "100%", md: "80%" }, // Restrict content width
+              mx: "auto", // Center it
+              px: { xs: 2, sm: 4 }, // Add padding for smaller screens
+            }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <Typography
+                  variant="h3"
                   sx={{
-                    backgroundColor: "#00c853",
-                    px: 4,
-                    py: 1.5,
-                    fontSize: "1rem",
-                    textTransform: "none",
-                    borderRadius: "999px",
-                    animation:
-                      "glow 3s ease-in-out infinite, shake 0.5s ease-in-out infinite",
-                    animationDelay: "0s, 3s",
-                    "&:hover": {
-                      backgroundColor: "#00b248",
-                      animation: "shake 0.3s ease-in-out",
-                    },
+                    fontWeight: "bold",
+                    mb: 2,
+                    fontSize: { xs: "2rem", md: "3rem" },
                   }}
-                  onClick={() =>
-                    document
-                      .getElementById("contact")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
                 >
-                  Get Started
-                </Button>
-              </Box>
+                  {contentItems[currentIndex].heading}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{ mb: 4, maxWidth: 600, mx: "auto" }}
+                >
+                  {contentItems[currentIndex].description}
+                </Typography>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Button stays fixed below */}
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#00c853",
+                px: 4,
+                py: 1.5,
+                fontSize: "1rem",
+                textTransform: "none",
+                borderRadius: "999px",
+                animation:
+                  "glow 3s ease-in-out infinite, shake 0.5s ease-in-out infinite",
+                animationDelay: "0s, 3s",
+                "&:hover": {
+                  backgroundColor: "#00b248",
+                  animation: "shake 0.3s ease-in-out",
+                },
+              }}
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Get Started
+            </Button>
+          </Box>
         </Container>
       </Box>
 
@@ -408,174 +413,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// import React, { useEffect, useRef, useState } from "react";
-// import { Box, Button, Typography } from "@mui/material";
-// import { motion } from "framer-motion";
-
-// const Home = () => {
-//   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-//   const [gradientAngle, setGradientAngle] = useState(45);
-//   const rippleRef = useRef(null);
-
-//   useEffect(() => {
-//     document.body.style.overflowX = "hidden";
-//     return () => {
-//       document.body.style.overflowX = "";
-//     };
-//   }, []);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setGradientAngle((prev) => (prev + 1) % 360);
-//     }, 100);
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   useEffect(() => {
-//     const updateCursor = (e) => {
-//       const x = e.clientX;
-//       const y = e.clientY;
-//       setCursorPosition({ x, y });
-
-//       if (rippleRef.current) {
-//         rippleRef.current.style.left = `${x - 10}px`;
-//         rippleRef.current.style.top = `${y - 10}px`;
-//       }
-//     };
-
-//     window.addEventListener("mousemove", updateCursor);
-//     return () => window.removeEventListener("mousemove", updateCursor);
-//   }, []);
-
-//   return (
-//     <Box
-//       sx={{
-//         width: "100vw",
-//         height: "100vh",
-//         background: `linear-gradient(${gradientAngle}deg, rgba(248, 243, 245, 0.8), #ffffff 40%)`,
-//         display: "flex",
-//         flexDirection: "column",
-//         justifyContent: "center",
-//         alignItems: "center",
-//         overflow: "hidden",
-//         position: "relative",
-//         margin: 0,
-//         padding: 0,
-//         boxSizing: "border-box",
-//       }}
-//     >
-//       {/* Cursor ripple animation */}
-//       <motion.div
-//         ref={rippleRef}
-//         className="cursor-ripple"
-//         animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0.6, 0.4] }}
-//         transition={{ duration: 1.5, repeat: Infinity }}
-//         style={{
-//           position: "fixed",
-//           width: 20,
-//           height: 20,
-//           borderRadius: "50%",
-//           backgroundColor: "#f48fb1",
-//           pointerEvents: "none",
-//           zIndex: 10,
-//         }}
-//       />
-
-//       {/* Subtle animated radial background */}
-//       <motion.div
-//         initial={{ opacity: 0.1, scale: 1 }}
-//         animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.05, 1] }}
-//         transition={{
-//           duration: 12,
-//           repeat: Infinity,
-//           ease: "easeInOut",
-//         }}
-//         style={{
-//           position: "absolute",
-//           width: "1000px",
-//           height: "1000px",
-//           borderRadius: "50%",
-//           background: "radial-gradient(circle, rgba(63,81,181,0.05), transparent 70%)",
-//           top: "50%",
-//           left: "50%",
-//           transform: "translate(-50%, -50%)",
-//           zIndex: 0,
-//           pointerEvents: "none",
-//         }}
-//       />
-
-//       {/* Main content */}
-//       <motion.div
-//         initial={{ opacity: 0, y: 30 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 1.2 }}
-//         style={{
-//           zIndex: 2,
-//           textAlign: "center",
-//           maxWidth: "800px",
-//           padding: "1rem",
-//         }}
-//       >
-//         <Typography
-//           variant="h2"
-//           sx={{
-//             background: "linear-gradient(90deg, #3f51b5, #d81b60)",
-//             backgroundClip: "text",
-//             WebkitBackgroundClip: "text",
-//             WebkitTextFillColor: "transparent",
-//             fontWeight: "bold",
-//             mb: 2,
-//             fontSize: { xs: "1.8rem", sm: "2.4rem", md: "3rem" },
-//           }}
-//         >
-//           Empowering Skills. Enabling Growth.
-//         </Typography>
-//         <Typography
-//           variant="h6"
-//           sx={{
-//             color: "#333",
-//             mb: 4,
-//             fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-//           }}
-//         >
-//           Welcome to Demorgia Consulting Services – where we help discover talent and enable excellence through professional assessments.
-//         </Typography>
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ delay: 1, duration: 1 }}
-//         >
-//           <Button
-//             variant="contained"
-//             size="large"
-//             sx={{
-//               background: "linear-gradient(135deg, #3f51b5, #7e57c2)",
-//               color: "#fff",
-//               borderRadius: "50px",
-//               px: { xs: 4, sm: 5 },
-//               py: { xs: 1.2, sm: 1.5 },
-//               fontSize: { xs: "0.9rem", sm: "1rem" },
-//               fontWeight: "bold",
-//               boxShadow: "0 8px 30px rgba(63, 81, 181, 0.2)",
-//               textTransform: "none",
-//               transition: "all 0.4s ease",
-//               "&:hover": {
-//                 background: "linear-gradient(135deg, #303f9f, #5e35b1)",
-//                 boxShadow: "0 10px 40px rgba(63, 81, 181, 0.4)",
-//                 transform: "scale(1.05)",
-//               },
-//             }}
-// onClick={() =>
-//   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-// }
-//           >
-//             Get Started
-//           </Button>
-//         </motion.div>
-//       </motion.div>
-//     </Box>
-//   );
-// };
-
-// export default Home;

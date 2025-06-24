@@ -18,7 +18,6 @@ import {
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
-
 const footerLinks = [
   { label: "Home", path: "/" },
   { label: "About us", path: "/about" },
@@ -26,7 +25,7 @@ const footerLinks = [
   { label: "Terms of service", path: "/terms-of-service" },
   { label: "Privacy policy", path: "/privacy-policy" },
   { label: "Safe Workplace Policy", path: "/safe-workplace-policy" },
-  { label: " Grievance", path: "" },
+  { label: " Grievance", path: "/grievancce" },
 ];
 
 const Footer = () => {
@@ -49,7 +48,7 @@ const Footer = () => {
             <Typography variant="body2">
               Empowering Individuals and Industries through Accurate
               Assessments, Strategic Consultancy, and Innovative Solutions.
-               <strong>Unlocking Potential, Driving Growth.</strong>
+              <strong>Unlocking Potential, Driving Growth.</strong>
             </Typography>
           </Grid>
 
@@ -60,23 +59,23 @@ const Footer = () => {
             </Typography>
             <Divider sx={{ width: 40, bgcolor: "#00ff7f", mb: 1 }} />
             {footerLinks.map(({ label, path }, i) => (
-    <Typography
-      key={i}
-      variant="body2"
-      component={Link}
-      to={path}
-      sx={{
-        cursor: "pointer",
-        textDecoration: "none",
-        color: "inherit",
-        mb: 1,
-        display: "block",
-        "&:hover": { color: "#003300" },
-      }}
-    >
-      › {label}
-    </Typography>
-  ))}
+              <Typography
+                key={i}
+                variant="body2"
+                component={Link}
+                to={path}
+                sx={{
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  color: "inherit",
+                  mb: 1,
+                  display: "block",
+                  "&:hover": { color: "#003300" },
+                }}
+              >
+                › {label}
+              </Typography>
+            ))}
           </Grid>
 
           {/* Contact */}
@@ -86,12 +85,19 @@ const Footer = () => {
             </Typography>
             <Divider sx={{ width: 40, bgcolor: "#00ff7f", mb: 1 }} />
             <Typography variant="body2">
-              Unit 14, Tower A, 9th Floor<br />
-              Logix Cyber Park<br />
-              Noida 62, UP 201309<br />
-              India<br /><br />
-              <strong>Phone:</strong> +91-120-3229282<br />
-              <strong>Phone:</strong> +91-120-3116273<br />
+              Unit 14, Tower A, 9th Floor
+              <br />
+              Logix Cyber Park
+              <br />
+              Noida 62, UP 201309
+              <br />
+              India
+              <br />
+              <br />
+              <strong>Phone:</strong> +91-120-3229282
+              <br />
+              <strong>Phone:</strong> +91-120-3116273
+              <br />
               <strong>Email:</strong> hrd@demorgia.com
             </Typography>
           </Grid>
@@ -105,7 +111,8 @@ const Footer = () => {
             <Typography variant="body2" mb={2}>
               <strong>"Vikram Aviation Pvt Ltd"</strong> <br />
               'Trusted Partner for Precision Calibration, Expert Repairs,
-              Composite Maintenance, and Consumable Solutions.'<br />
+              Composite Maintenance, and Consumable Solutions.'
+              <br />
               Our group company fosters collaborative excellence across
               industries, uniting innovation and expertise.
             </Typography>
@@ -137,7 +144,7 @@ const Footer = () => {
                 SUBSCRIBE
               </Button>
             </Box>
-             <Box mt={2}>
+            <Box mt={2}>
               {[Twitter, Facebook, Instagram, Google, LinkedIn].map(
                 (Icon, i) => (
                   <IconButton
@@ -159,11 +166,9 @@ const Footer = () => {
         <Box mt={6} textAlign="center">
           <Divider sx={{ bgcolor: "#006400", mb: 2 }} />
           <Typography variant="body2" sx={{ color: "#111" }}>
-            © Copyright{" "}
-            <strong>Demorgia Consulting Services Pvt Ltd</strong>. All Rights
-            Reserved
+            © Copyright <strong>Demorgia Consulting Services Pvt Ltd</strong>.
+            All Rights Reserved
           </Typography>
-          
         </Box>
       </Container>
     </Box>

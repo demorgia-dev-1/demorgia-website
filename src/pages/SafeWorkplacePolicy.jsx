@@ -5,12 +5,13 @@ import { motion } from "framer-motion";
 const SafeWorkplacePolicy = () => {
   return (
     <Box sx={{ py: 10, backgroundColor: "#fefefe" }}>
-      <Container maxWidth="md"
-      sx={{
-        p: 4,
-        background: "white",
-         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-      }}
+      <Container
+        maxWidth="md"
+        sx={{
+          p: 4,
+          background: "white",
+          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+        }}
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -53,7 +54,12 @@ const SafeWorkplacePolicy = () => {
             Incidents will be dealt with strictly as per the law.
           </Typography>
 
-          <Typography variant="h5" fontWeight="bold" gutterBottom sx={{ mt: 4 }}>
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            gutterBottom
+            sx={{ mt: 4 }}
+          >
             What Constitutes Sexual Harassment?
           </Typography>
           <Typography component="ul" variant="body1" sx={{ pl: 3, mb: 3 }}>
@@ -65,9 +71,11 @@ const SafeWorkplacePolicy = () => {
               "Display of sexually explicit material (including pornography)",
               "Use of sexually abusive or suggestive language",
               "Unwanted physical contact or proximity",
-              "Any behaviour (verbal, non-verbal, physical, or digital) that creates an intimidating or offensive work environment"
+              "Any behaviour (verbal, non-verbal, physical, or digital) that creates an intimidating or offensive work environment",
             ].map((point, i) => (
-              <li key={i} style={{ marginBottom: 8 }}>{point}</li>
+              <li key={i} style={{ marginBottom: 8 }}>
+                {point}
+              </li>
             ))}
           </Typography>
 
@@ -87,36 +95,36 @@ const SafeWorkplacePolicy = () => {
           </Typography>
 
           <Typography variant="h5" fontWeight="bold" gutterBottom>
-  Legal Framework
-</Typography>
-<Typography variant="body1">
-  To know more about your rights under the law, download the official documents:
-  <ul style={{ paddingLeft: "20px", marginTop: 8 }}>
-    <li>
-      <Link
-        href="/pdf/posh-act-english.pdf"
-        download
-        target="_blank"
-        rel="noopener"
-        underline="hover"
-      >
-        📄 The PoSH Act, 2013 – English Version
-      </Link>
-    </li>
-    <li>
-      <Link
-        href="/pdf/posh-act-hindi.pdf"
-        download
-        target="_blank"
-        rel="noopener"
-        underline="hover"
-      >
-        📄 The PoSH Act, 2013 – Hindi Version
-      </Link>
-    </li>
-  </ul>
-</Typography>
-
+            Legal Framework
+          </Typography>
+          <Typography variant="body1">
+            To know more about your rights under the law, download the official
+            documents:
+            <ul style={{ paddingLeft: "20px", marginTop: 8 }}>
+              <li>
+                <Link
+                  href="/pdf/posh-act-english.pdf"
+                  download
+                  target="_blank"
+                  rel="noopener"
+                  underline="hover"
+                >
+                  📄 The PoSH Act, 2013 – English Version
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/pdf/posh-act-hindi.pdf"
+                  download
+                  target="_blank"
+                  rel="noopener"
+                  underline="hover"
+                >
+                  📄 The PoSH Act, 2013 – Hindi Version
+                </Link>
+              </li>
+            </ul>
+          </Typography>
         </motion.div>
       </Container>
     </Box>

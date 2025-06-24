@@ -1,5 +1,10 @@
-import React, { useRef } from "react";
-import { useLocation, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, Routes, Route, useNavigate } from "react-router-dom";
+import { Box } from "@mui/material";
+import {
+  NavigationProvider,
+  useNavigation,
+} from "./context/NavigationContext";
 import Home from "./components/Home";
 import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
@@ -10,58 +15,71 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Facts from "./components/Facts";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermOfServices"; // create this page if not already
-import { Box } from "@mui/material";
+import TermsOfService from "./pages/TermOfServices";
 import SafeWorkplacePolicy from "./pages/SafeWorkplacePolicy";
+import Grievance from "./pages/Grievance";
+import ScrollToTop from "./components/ScrollTop";
 
-function App() {
+function AppContent() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { refs } = useNavigation();
 
-  const homeRef = useRef(null);
-  const aboutRef = useRef(null);
-  const servicesRef = useRef(null);
-  const portfolioRef = useRef(null);
-  const partnersRef = useRef(null);
-  const contactRef = useRef(null);
-
-  const scrollToSection = (ref) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = (refName) => {
+    const sectionRef = refs[refName];
+    if (sectionRef?.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/", { state: { scrollTo: refName } });
+    }
   };
 
-  // Define standalone routes where only header/footer + page should be shown
-  const standaloneRoutes = ["/privacy-policy", "/terms-of-service", "/safe-workplace-policy"];
-  const isStandalone = standaloneRoutes.includes(location.pathname);
+  const isStandalone = [
+    "/privacy-policy",
+    "/terms-of-service",
+    "/safe-workplace-policy",
+    "/grievancce",
+  ].includes(location.pathname);
+
+  useEffect(() => {
+    const scrollTo = location.state?.scrollTo;
+    if (scrollTo && refs[scrollTo]?.current) {
+      setTimeout(() => {
+        refs[scrollTo].current.scrollIntoView({ behavior: "smooth" });
+      }, 200);
+    }
+  }, [location, refs]);
 
   return (
     <>
       <Header
         onNavigate={{
-          home: () => scrollToSection(homeRef),
-          about: () => scrollToSection(aboutRef),
-          services: () => scrollToSection(servicesRef),
-          portfolio: () => scrollToSection(portfolioRef),
-          partners: () => scrollToSection(partnersRef),
-          contact: () => scrollToSection(contactRef),
+          home: () => scrollToSection("homeRef"),
+          about: () => scrollToSection("aboutRef"),
+          services: () => scrollToSection("servicesRef"),
+          portfolio: () => scrollToSection("portfolioRef"),
+          partners: () => scrollToSection("partnersRef"),
+          contact: () => scrollToSection("contactRef"),
         }}
       />
 
       {!isStandalone && (
         <Box sx={{ minHeight: "100vh", overflowX: "hidden" }}>
-          <section ref={homeRef}><Home /></section>
-          <section ref={aboutRef}><About /></section>
-          <section ref={servicesRef}><Services /></section>
+          <section ref={refs.homeRef}><Home /></section>
+          <section ref={refs.aboutRef}><About /></section>
+          <section ref={refs.servicesRef}><Services /></section>
           <section><Facts /></section>
-          <section ref={portfolioRef}><Portfolio /></section>
-          <section ref={partnersRef}><Partners /></section>
-          <section ref={contactRef}><Contact /></section>
+          <section ref={refs.portfolioRef}><Portfolio /></section>
+          <section ref={refs.partnersRef}><Partners /></section>
+          <section ref={refs.contactRef}><Contact /></section>
         </Box>
       )}
 
-      {/* Standalone Pages Routes */}
       <Routes>
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/safe-workplace-policy" element={<SafeWorkplacePolicy />} />
+        <Route path="/grievancce" element={<Grievance />} />
       </Routes>
 
       <Footer />
@@ -69,4 +87,11 @@ function App() {
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <NavigationProvider>
+      <ScrollToTop />
+      <AppContent />
+    </NavigationProvider>
+  );
+}
