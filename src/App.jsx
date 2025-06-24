@@ -19,6 +19,7 @@ import TermsOfService from "./pages/TermOfServices";
 import SafeWorkplacePolicy from "./pages/SafeWorkplacePolicy";
 import Grievance from "./pages/Grievance";
 import ScrollToTop from "./components/ScrollTop";
+import OurStory from "./components/OurStory";
 
 function AppContent() {
   const location = useLocation();
@@ -71,6 +72,7 @@ function AppContent() {
           <section><Facts /></section>
           <section ref={refs.portfolioRef}><Portfolio /></section>
           <section ref={refs.partnersRef}><Partners /></section>
+          <section><OurStory /></section>
           <section ref={refs.contactRef}><Contact /></section>
         </Box>
       )}
