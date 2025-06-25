@@ -7,7 +7,7 @@ import {
 } from "./context/NavigationContext";
 import Home from "./components/Home";
 import Services from "./components/Services";
-import Portfolio from "./components/Portfolio";
+// import Portfolio from "./components/Portfolio";
 import Partners from "./components/Partners";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -15,11 +15,11 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Facts from "./components/Facts";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermOfServices";
+import TermAndConditions from "./pages/TermAndConditions";
 import SafeWorkplacePolicy from "./pages/SafeWorkplacePolicy";
 import Grievance from "./pages/Grievance";
 import ScrollToTop from "./components/ScrollTop";
-import OurStory from "./components/OurStory";
+// import OurStory from "./components/OurStory";
 
 function AppContent() {
   const location = useLocation();
@@ -37,7 +37,7 @@ function AppContent() {
 
   const isStandalone = [
     "/privacy-policy",
-    "/terms-of-service",
+    "/terms",
     "/safe-workplace-policy",
     "/grievancce",
   ].includes(location.pathname);
@@ -58,7 +58,7 @@ function AppContent() {
           home: () => scrollToSection("homeRef"),
           about: () => scrollToSection("aboutRef"),
           services: () => scrollToSection("servicesRef"),
-          portfolio: () => scrollToSection("portfolioRef"),
+          // portfolio: () => scrollToSection("portfolioRef"),
           partners: () => scrollToSection("partnersRef"),
           contact: () => scrollToSection("contactRef"),
         }}
@@ -70,16 +70,16 @@ function AppContent() {
           <section ref={refs.aboutRef}><About /></section>
           <section ref={refs.servicesRef}><Services /></section>
           <section><Facts /></section>
-          <section ref={refs.portfolioRef}><Portfolio /></section>
+          {/* <section ref={refs.portfolioRef}><Portfolio /></section> */}
           <section ref={refs.partnersRef}><Partners /></section>
-          <section><OurStory /></section>
+          {/* <section><OurStory /></section> */}
           <section ref={refs.contactRef}><Contact /></section>
         </Box>
       )}
 
       <Routes>
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/terms" element={<TermAndConditions />} />
         <Route path="/safe-workplace-policy" element={<SafeWorkplacePolicy />} />
         <Route path="/grievancce" element={<Grievance />} />
       </Routes>

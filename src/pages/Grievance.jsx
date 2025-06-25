@@ -89,7 +89,7 @@ const Grievance = () => {
 
         <Typography variant="body1" gutterBottom>
           Alternatively, candidates may email their grievance to:{" "}
-          <strong>grievance@yourportal.com</strong>  
+          <strong>grievance@demorgia.com</strong>  
           Please include the following details:
         </Typography>
 
@@ -139,16 +139,16 @@ const Grievance = () => {
             <ListItemText primary="Name: [Full Name]" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Email: grievance@yourportal.com" />
+            <ListItemText primary="Email: grievance@demorgia.com" />
           </ListItem>
           <ListItem>
             <ListItemText primary="Phone: [+91-XXXXXXXXXX]" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Working Hours: Monday to Friday, 10:00 AM – 6:00 PM" />
+            <ListItemText primary="Working Hours: Monday to Friday, 9:30 AM – 6:30 PM" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Office Address: [Organization Name, Address Line 1, City, State, Pincode]" />
+            <ListItemText primary="Office Address: [Demorgia Consulting Services Pvt Ltd, Unit 14, Tower A, 9th Floor, Logix Cyber Park, Noida 62, UP 201309, India]" />
           </ListItem>
         </List>
 

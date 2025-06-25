@@ -20,9 +20,9 @@ import { Link } from "react-router-dom";
 
 const footerLinks = [
   { label: "Home", path: "/" },
-  { label: "About us", path: "/about" },
-  { label: "Services", path: "/services" },
-  { label: "Terms of service", path: "/terms-of-service" },
+  // { label: "About us", path: "/about" },
+  // { label: "Services", path: "/services" },
+  { label: "Terms and Conditions", path: "/terms" },
   { label: "Privacy policy", path: "/privacy-policy" },
   { label: "Safe Workplace Policy", path: "/safe-workplace-policy" },
   { label: " Grievance", path: "/grievancce" },

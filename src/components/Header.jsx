@@ -15,7 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import logo from "/logo.png";
 import { motion } from "framer-motion";
 
-const navLinks = ["About", "Services", "Portfolio", "Partners", "Contact"];
+const navLinks = ["About", "Services", "Partners", "Contact"];
 
 function Header({ onNavigate = {} }) {
   const [drawerOpen, setDrawerOpen] = useState(false);

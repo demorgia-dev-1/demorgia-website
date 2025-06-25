@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect, useRef } from "react";
 import {
   Box,
@@ -13,7 +11,7 @@ import SpeedIcon from "@mui/icons-material/Speed";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import SuccessStory from "./SuccessStory";
+import OurStory from "./OurStory";
 
 const About = () => {
   const theme = useTheme();
@@ -380,7 +378,7 @@ const About = () => {
           ))}
         </Box>
       </Container>
-      {/* <SuccessStory /> */}
+      <OurStory />
     </Box>
   );
 };

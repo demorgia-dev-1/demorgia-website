@@ -26,6 +26,7 @@ import {
   FaProjectDiagram,
   FaTimes,
 } from "react-icons/fa";
+import OurGallery from "./OurGallery";
 
 const services = [
   {
@@ -42,7 +43,7 @@ const services = [
       "Provide comprehensive reports and certifications.",
     ],
     tools: ["Online Platform", "Secure Evaluation", "AI Scoring"],
-    images: ["/services/assessment1.jpg", "/services/assessment2.jpg"],
+    images: ["/services/assessment1.jpg", "/services/assessment2.jpg","/services/assessment3.jpg", "/services/assessment4.jpg","/services/assessment5.jpg", "/services/assessment6.jpg"],
   },
   {
     title: "Skill Gap Analysis",
@@ -57,7 +58,7 @@ const services = [
       "	Design tailored training programs",
     ],
     tools: ["Reports", "Data Analytics", "Visual Dashboards"],
-    images: ["/services/gapanalysis.jpg"],
+    images: ["/services/gapanalysis1.jpg","/services/gapanalysis2.png","/services/gapanalysis3.webp","/services/gapanalysis4.png","/services/gapanalysis5.jpg","/services/gapanalysis6.jpg"],
   },
   {
     title: "Software Solutions",
@@ -73,7 +74,7 @@ const services = [
       "	Provide ongoing support and updates.",
     ],
     tools: ["React", "Node.js", "MongoDB", "Firebase"],
-    images: ["/services/software1.jpg", "/services/software2.jpg"],
+    images: ["/services/software1.jpg", "/services/software2.jpg","/services/software3.jpg", "/services/software4.png","/services/software5.jpg", "/services/software6.jpg"],
   },
   {
     title: "Manpower Solutions",
@@ -81,14 +82,14 @@ const services = [
     description:
       "We assist businesses in recruiting and retaining skilled professionals.",
     steps: [
-      "1.	Understand organizational talent needs.",
-      "2.	Source candidates through various channels",
-      "3.	Conduct rigorous screening and interviews.",
-      "4.	Facilitate onboarding and integration.",
-      "5.	Support retention and performance management.",
+      "Understand organizational talent needs.",
+      "Source candidates through various channels",
+      "Conduct rigorous screening and interviews.",
+      "Facilitate onboarding and integration.",
+      "	Support retention and performance management.",
     ],
     tools: ["Recruitment Platforms", "ATS", "HR Analytics"],
-    images: ["/services/manpower1.jpg", "/services/manpower2.jpg"],
+    images: ["/services/manpower1.jpg", "/services/manpower2.jpg","/services/manpower3.jpg", "/services/manpower4.jpg","/services/manpower5.jpg", "/services/manpower6.jpg"],
   },
   {
     title: "Training and Development",
@@ -102,7 +103,7 @@ const services = [
       "Evaluate progress and feedback",
     ],
     tools: ["LMS", "E-learning Tools", "Interactive Content"],
-    images: ["/services/training1.jpg", "/services/training2.jpg"],
+    images: ["/services/training1.jpg", "/services/training2.jpg","/services/training3.jpg", "/services/training4.jpg","/services/training5.jpg", "/services/training6.jpg"],
   },
 ];
 
@@ -122,6 +123,8 @@ const Services = () => {
   };
 
   return (
+    <>
+      <OurGallery />
     <Box
       id="services"
       sx={{
@@ -130,6 +133,7 @@ const Services = () => {
         background: "white",
       }}
     >
+    
       <Container maxWidth="lg">
         <motion.div
           initial={{ y: -100, opacity: 0 }}
@@ -247,20 +251,20 @@ const Services = () => {
                           src={img}
                           alt={`Service Image ${idx + 1}`}
                           sx={{
-                            width: "100%",
+                            width: 140,
                             height: { xs: 70, sm: 90 },
                             objectFit: "cover",
                             borderRadius: 2,
                             boxShadow: 1,
                           }}
                         />
-                        <Typography
+                        {/* <Typography
                           variant="caption"
                           color="text.secondary"
                           mt={1}
                         >
                           {service.title} Image {idx + 1}
-                        </Typography>
+                        </Typography> */}
                       </Box>
                     ))}
                   </Box>
@@ -336,6 +340,7 @@ const Services = () => {
         </Dialog>
       </Container>
     </Box>
+    </>
   );
 };
 

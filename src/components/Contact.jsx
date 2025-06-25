@@ -102,7 +102,7 @@ const Contact = () => {
                 <Typography fontWeight={700}>Email</Typography>
                 <Typography variant="body2">
                   <Link href="mailto:hrd@demorgia.com" underline="hover">
-                    hrd@demorgia.com
+                    support@demorgia.com
                   </Link>
                 </Typography>
               </Box>
